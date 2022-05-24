@@ -1,0 +1,130 @@
+/* open sans font */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+/* cascadia code pl */
+@import url(http://fonts.googleapis.com/css?family=Cascadia+Code+PL);
+
+:root {
+     --theme-color: #5f80ff;
+}
+
+body {
+     font-family: "Open Sans", sans-serif;
+     font-size: 14px;
+     background-color: #1a1a1a;
+     color: #eee;
+     margin: 0;
+}
+
+nav {
+     position: sticky;
+     width: 100%;
+     top: 0;
+     z-index: 100;
+     background-color: #1e1e1e;
+     box-shadow: 0 0 5px #000;
+     display: flex;
+     height: 64px;
+}
+
+nav ul {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+     display: flex;
+     justify-content: right;
+     width: 100%;
+}
+
+nav ul li {
+     display: inline-block;
+     margin: 0;
+     padding: 0;
+     position: relative;
+     display: flex;
+     align-items: center;
+     padding-inline: 15px;
+     border-right: #000 solid 1px;
+}
+
+nav ul li a {
+     padding: 0;
+     margin: 0;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 100%;
+     width: 100%;
+}
+
+nav ul li::after {
+     content: "";
+     height: 64px;
+     width: 100%;
+     background-color: #222;
+     position: absolute;
+     left: 0;
+     top: 0;
+     z-index: -1;
+}
+
+a {
+     color: var(--theme-color);
+     text-decoration: none;
+}
+
+a:hover {
+     text-decoration: underline;
+}
+
+main {
+     width: calc(100% - 40px);
+     display: flex;
+     flex-direction: column;
+     padding-block: 15px;
+     padding-inline: 20px;
+     margin: 0;
+     min-height: calc(100vh - 94px);
+}
+
+main h2[data-title] {
+     text-align: center;
+     font-size: 2rem;
+}
+
+.type-writter .line {
+     white-space: nowrap;
+     overflow: hidden;
+     width: max-content;
+     visibility: hidden;
+     margin: 1px;
+}
+
+.type-writter .line.active {
+     animation: blinkTextCursor 500ms steps(44) infinite normal;
+     border-right: 2px solid var(--theme-color);
+     visibility: visible;
+}
+
+.type-writter .line.actived {
+     visibility: visible;
+}
+
+/* Dots instead of spaces */
+.type-writter .line {
+     letter-spacing: 0.1em;
+     font-family: "Cascadia Code PL", monospace;
+     position: relative;
+}
+
+
+@keyframes blinkTextCursor {
+
+     from,
+     to {
+          border-color: transparent;
+     }
+
+     50% {
+          border-color: var(--theme-color);
+     }
+}
